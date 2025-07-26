@@ -1,7 +1,7 @@
 export const LoadingIndicator = () => {
     return (
-        <div className="flex justify-center items-center py-8">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 dark:border-blue-400"></div>
+        <div className="flex justify-center items-center py-8 absolute h-full w-full top-0 left-0 dark:bg-gray-800/20 bg-gray-400/10">
+            <p className="text-lg">Fetching data...</p>
         </div>
     );
 };

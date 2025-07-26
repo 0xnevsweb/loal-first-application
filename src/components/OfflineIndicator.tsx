@@ -6,7 +6,7 @@ export const OfflineIndicator = () => {
     if (isOnline) return null;
 
     return (
-        <div className="text-yellow-700 px-4 py-2 mb-4 dark:text-yellow-200">
+        <div className="text-yellow-700 px-4 py-2 dark:text-yellow-200">
             <p>{error || 'You are offline!'}</p>
         </div>
     );

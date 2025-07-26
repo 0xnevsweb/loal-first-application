@@ -42,15 +42,17 @@ export default function Home() {
         <OfflineIndicator />
       </div>
 
-      {loading && <LoadingIndicator />}
+      <div className='relative'>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {users.map((user) => (
+            <UserCard key={user.id} user={user} />
+          ))}
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {users.map((user) => (
-          <UserCard key={user.id} user={user} />
-        ))}
+        {loading && <LoadingIndicator />}
       </div>
 
-      <Pagination />
+      {users.length ? <Pagination />: <></>}
     </div>
   );
 }
