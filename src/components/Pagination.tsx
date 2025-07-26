@@ -31,7 +31,7 @@ export const Pagination = () => {
             <button
                 onClick={handlePrevious}
                 disabled={page === 1}
-                className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300 dark:bg-blue-600 dark:disabled:bg-gray-600"
+                className="px-4 py-2 bg-gray-500 text-white rounded disabled:opacity-30 dark:bg-gray-800 dark:disabled:bg-gray-600 cursor-pointer"
             >
                 Previous
             </button>
@@ -41,7 +41,7 @@ export const Pagination = () => {
             <button
                 onClick={handleNext}
                 disabled={!isOnline && (page * RESULTS_PER_PAGE) >= totalCachedUsers}
-                className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300 dark:bg-blue-600 dark:disabled:bg-gray-600"
+                className="px-4 py-2 bg-gray-500 text-white rounded disabled:opacity-30 dark:bg-gray-800 dark:disabled:bg-gray-600 cursor-pointer"
             >
                 Next
             </button>

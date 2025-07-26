@@ -64,7 +64,7 @@ export default function Home() {
       <div className="flex gap-2 mb-4">
         <button
           onClick={() => setIsOnline(!isOnline)}
-          className={`px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 h-fit ${isOnline ? 'text-green-500' : 'text-red-500'}`}
+          className={`px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-600 cursor-pointer h-fit ${isOnline ? 'text-green-500' : 'text-red-500'}`}
         >
           {isOnline ? 'Go Offline' : 'Go Online'}
         </button>
@@ -72,14 +72,14 @@ export default function Home() {
       </div>
 
       {/* Search and Sort Controls */}
-      <div className="mb-4 flex gap-2">
+      <div className="mb-6 flex gap-2">
         <div className="relative w-full">
           <input
             type="search"
             placeholder="Search by name or email..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full p-2 pl-10 border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+            className="w-full p-2 pl-10 border-none focus-visible:outline-0 rounded-md dark:bg-gray-800  dark:text-white"
           />
           <svg
             className="absolute left-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
@@ -101,7 +101,7 @@ export default function Home() {
           <select
             value={sortField || ''}
             onChange={(e) => setSortField(e.target.value as keyof User || null)}
-            className="p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+            className="p-2 rounded-md dark:bg-gray-800 dark:text-white focus-visible:outline-0"
           >
             <option value="">Default Order</option>
             <option value="name.first">First Name</option>
@@ -112,7 +112,7 @@ export default function Home() {
           {sortField && (
             <button
               onClick={toggleSortDirection}
-              className="p-2 bg-gray-200 rounded-md dark:bg-gray-700 dark:text-white"
+              className="p-2 bg-gray-200 rounded-md dark:bg-gray-800 dark:text-white"
             >
               {sortDirection === 'asc' ? '↑' : '↓'}
             </button>
@@ -122,9 +122,9 @@ export default function Home() {
 
       <div className='relative'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredUsers.map((user) => (
+          {filteredUsers.length ? filteredUsers.map((user) => (
             <UserCard key={user.id} user={user} />
-          ))}
+          )) : (<p>No data</p>)}
         </div>
 
         {loading && <LoadingIndicator />}
