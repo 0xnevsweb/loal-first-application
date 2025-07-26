@@ -7,7 +7,7 @@ export const OfflineIndicator = () => {
 
     return (
         <div className="text-yellow-700 px-4 py-2 dark:text-yellow-200">
-            <p>{error || 'You are offline!'}</p>
+            <p>{error || 'Showing cached data!'}</p>
         </div>
     );
 };

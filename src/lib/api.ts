@@ -1,7 +1,7 @@
-export const fetchUsers = async (page: number = 1) => {
+export const fetchUsers = async (page: number = 1, size: number = 12) => {
     try {
         const response = await fetch(
-            `https://randomuser.me/api/?page=${page}&results=12`
+            `https://randomuser.me/api/?page=${page}&results=${size}`
         );
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
